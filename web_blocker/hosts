@@ -26,8 +26,10 @@
 127.0.0.1 kubernetes.docker.internal
 # End of section
 # Web blocker section start
-127.0.0.1 facebook.com
-127.0.0.1 www.facebook.com
+127.0.0.1 asuracomics.com
+127.0.0.1 www.asuracomics.com
+127.0.0.1 animepahe.com
+127.0.0.1 www.animepahe.com
 127.0.0.1 gogoanime.gg
 127.0.0.1 www.gogoanime.gg
 127.0.0.1 youtube.com

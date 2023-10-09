@@ -59,8 +59,8 @@ class WebBlocker:
         self.write_hosts_file(hosts)
 
 if __name__ == "__main__":
-    hosts_path = "C:/Windows/System32/drivers/etc/hosts"       # for implementation
-    # hosts_path = "hosts"                                         # for development
+    # hosts_path = "C:/Windows/System32/drivers/etc/hosts"       # for implementation
+    hosts_path = "web_blocker/hosts"                                         # for development
     redirect_path = "127.0.0.1"
     section_start = "# Web blocker section start\n"
     section_end = "# Web blocker section end\n"

@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from web_blocker import blocker
+from web_blocker.blocker import WebBlocker
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
@@ -23,6 +23,17 @@ class Todo(db.Model):
 class TodoForm(FlaskForm):
     todo = StringField("Todo")
     submit = SubmitField("Add Todo")
+
+class BlockForm(FlaskForm):
+    block = StringField("Block")
+    submit = SubmitField("Add Site")
+
+# hosts_path = "C:/Windows/System32/drivers/etc/hosts"       # for implementation
+hosts_path = "web_blocker/hosts"                            # for development
+redirect_path = "127.0.0.1"
+section_start = "# Web blocker section start\n"
+section_end = "# Web blocker section end\n"
+web_blocker = WebBlocker(hosts_path, redirect_path, section_start, section_end)
 
 @app.route('/', methods=['GET'])
 def index():
@@ -70,6 +81,29 @@ def update_todo(todo_id):
             return 'There was an issue updating your task'
     else:
         return render_template('update.html', todo=todo)
+
+@app.route('/blocker', methods=['GET', 'POST'])
+def blocker():
+    form = BlockForm()
+    if request.method == 'POST' and 'site' in request.form:
+        try:
+            site_to_block = request.form['site']
+            web_blocker.block_sites(site_to_block)
+            return redirect('/blocker')
+        except:
+            return 'There was an issue adding your site'
+    else:
+        return render_template('blocker.html', blocked_sites=web_blocker.get_blocked_sites(), enumerate=enumerate)
+
+@app.route('/delete_blocked_site/<int:blocked_site_id>')
+def delete_blocked_site(blocked_site_id):
+    blocked_sites = web_blocker.get_blocked_sites()
+    site_to_unblock = blocked_sites[blocked_site_id]
+    try:
+        web_blocker.unblock_site(site_to_unblock)
+        return redirect('/blocker')
+    except:
+        return 'There was a problem deleting that task'
 
 if __name__ == '__main__':
     app.run(debug=True)

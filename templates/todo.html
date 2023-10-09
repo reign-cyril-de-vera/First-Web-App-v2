@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-align: center">Todos 📝</h1>
+    <h1 class="text-align: center">📝 Todos 📝</h1>
         
     {% if todos | length < 1 %}
         <h4 class="text-align: center">There are no tasks. Create one below!</h4>
     {% else %}
 
-    <table>
+        <table>
         <tr>
             <th>Todo</th>
             <th>Added</th>
@@ -27,7 +27,7 @@
                 </td>
             </tr>
         {% endfor %}
-    </table>
+        </table>
     {% endif %}
     
 
