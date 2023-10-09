@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <h1 class="text-align: center">🚫 Blocker 🚫</h1>
+
+    {% if blocked_sites | length < 1 %}
+        <h4 class="text-align: center">There are no blocked sites. Create one below!</h4>
+    
+    {% else %}
+        <table>
+            <tr>
+                <th>BLOCKED SITES</th>
+                <th>DELETE</th>
+            </tr>
+            {% for idx, site in enumerate(blocked_sites) %}
+                <tr>
+                    <td>{{ site }}</td>
+                    <td><a href="/delete_blocked_site/{{idx}}" class="custom-link">🗑️</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+
+    <form action="/blocker" method="POST">
+        <input type="text" name="site" id="content" class="custom-input">
+        <input type="submit" value="➕" style="height: 25px">
+    </form>
+
+
+{% endblock %}
