@@ -28,7 +28,7 @@ class BlockForm(FlaskForm):
     block = StringField("Block")
     submit = SubmitField("Add Site")
 
-hosts_path = "C:/Windows/System32/drivers/etc/hosts"       # for implementation (Windows)
+# hosts_path = "C:/Windows/System32/drivers/etc/hosts"       # for implementation (Windows)
 hosts_path = "/mnt/c/Windows/System32/drivers/etc/hosts"        # for implementation (Linux)
 # hosts_path = "web_blocker/hosts"                            # for development
 redirect_path = "127.0.0.1"

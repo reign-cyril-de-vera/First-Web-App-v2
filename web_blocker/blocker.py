@@ -47,8 +47,8 @@ class WebBlocker:
                 site = f'{hosts[idx].replace(self.redirect_path + " ", "")}'.replace("\n", "")
                 sites_blocked.append(site)
         
-        for i, site in enumerate(sites_blocked):
-            print(f'{i+1}. {site}')
+        # for i, site in enumerate(sites_blocked):
+        #     print(f'{i+1}. {site}')
         
         return sites_blocked
 
