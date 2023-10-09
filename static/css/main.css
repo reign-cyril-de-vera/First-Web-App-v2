@@ -44,10 +44,12 @@ form {
 }
 
 footer {
-    background-color: #333; /* Background color for the footer */
-    color: #fff; /* Text color for the footer */
+    background-color: white; /* Background color for the footer */
+    color: black; /* Text color for the footer */
     padding-top: 5px; /* Add padding to the footer (adjust as needed) */
     padding-bottom: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
     text-align: center; /* Center-align the content within the footer */
 }
 
