@@ -1,3 +1,5 @@
 app_env
 var
 instance
+app.bat
+app.sh
