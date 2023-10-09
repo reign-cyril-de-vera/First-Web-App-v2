@@ -1,0 +1,99 @@
+body, html {
+    margin: 0;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+table, td, th {
+    border: 1px solid #aaa;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 60%;
+    justify-content: center;
+}
+
+th {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+form {
+    margin: 0 auto;
+    /* height: 100px; */
+    width: 80%;
+    padding: 10px;
+}
+
+.custom-input{
+    width: 60%;
+    height: 20px;
+}
+
+.paragraph-container{
+    width: 60%;
+    text-align: justify;
+    margin: 0 auto;
+    padding-bottom: 70px;
+}
+
+footer {
+    background-color: #333; /* Background color for the footer */
+    color: #fff; /* Text color for the footer */
+    padding-top: 5px; /* Add padding to the footer (adjust as needed) */
+    padding-bottom: 5px;
+    text-align: center; /* Center-align the content within the footer */
+}
+
+.header{
+    background-color: #333; /* Background color for the footer */
+    color: #fff; /* Text color for the footer */
+    padding-top: 5px; /* Add padding to the footer (adjust as needed) */
+    padding-bottom: 5px;
+    padding-left: 50px;
+    text-align: left; /* Center-align the content within the footer */
+}
+
+.custom-link:link {
+    text-decoration: none; /* Remove underline for unvisited links */
+    color: white; /* Set the color for unvisited links */
+}
+
+/* Style visited links */
+.custom-link:visited {
+    text-decoration: none; /* Remove underline for visited links */
+    color: white; /* Set the color for visited links */
+}
+
+/* Style links on hover */
+.custom-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: white; /* Set the color on hover */
+}
+
+.index-container{
+    width: 40%;
+    text-align: justify;
+    margin: 0 auto;
+    padding-bottom: 70px;
+    padding-top: 5px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 10px; /* Adjust the value as needed */
+}
+
+form {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}

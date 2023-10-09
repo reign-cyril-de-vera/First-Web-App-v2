@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    
+    <div class="header">
+        <p><a href="/" class="custom-link">🏠Home</a>  |  <a href="/about" class="custom-link">❓About</a></p>
+    </div>
+
+    {% block head %}
+    
+    {% endblock %}
+</head>
+
+
+<body>
+    
+    {% block body %}
+    
+    {% endblock %}
+    
+</body>
+
+
+<footer>
+    <p>
+        &copy; 2023 Reign Cyril De Vera 👋 🌏
+    </p>
+</footer>
+
+</html>

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <!-- <h1 class="center-heading">Todos</h1> -->
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-align: center">Todos 📝</h1>
+        
+    {% if todos | length < 1 %}
+        <h4 class="text-align: center">There are no tasks. Create one below!</h4>
+    {% else %}
+
+    <table>
+        <tr>
+            <th>Todo</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for todo in todos %}
+            <tr>
+                <td>{{ todo.todo_text }}</td>
+                <td>{{ todo.date_created.date() }}</td>
+                <td>
+                    <a href="/delete_todo/{{ todo.id }}" class="custom-link">☑️</a>
+                    <a href="/update_todo/{{ todo.id }}" class="custom-link">✏️</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    
+
+    <form action="/todo" method="POST">
+        <input type="text" name="todo" id="content" class="custom-input">
+        <input type="submit" value="➕" style="height: 25px">
+    </form>
+    
+{% endblock %}
