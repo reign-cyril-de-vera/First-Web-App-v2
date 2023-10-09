@@ -1,5 +1,5 @@
-app_env
+env
 var
 instance
-app.bat
+website_blocker.bat
 app.sh
