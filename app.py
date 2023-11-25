@@ -1,11 +1,12 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_from_directory
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from web_blocker.blocker import WebBlocker
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 app.config['SECRET_KEY'] = 'mysecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -39,6 +40,11 @@ web_blocker = WebBlocker(hosts_path, redirect_path, section_start, section_end)
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
+
+@app.route("/static/logo.png")
+def fav():
+    print(os.path.join(app.root_path, 'static'))
+    return send_from_directory(app.static_folder, 'logo.png') # for sure return the file
 
 @app.route('/about', methods=['GET'])
 def about():
